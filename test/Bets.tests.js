@@ -70,7 +70,7 @@ it("Checks the game goes OK", async function(){
     await bets.connect(acc3).moveCommit('0x1f9edb2b4f06d8470660b8bcd5ddc443a7eecf19cd7213f495a203db2c15ea57')
     await bets.connect(acc4).moveCommit('0xebf086d0d7e5779b28702e8c267f64d38d375f122166a7bb8a162fb47b78a0c2')
     await bets.connect(acc2).moveReveal(true, '0x41626f6261000000000000000000000000000000000000000000000000000000')
-    bets.connect(acc3).moveReveal(true, '0x41626f6261000000000000000000000000000000000000000000000000000000')
+    await bets.connect(acc3).moveReveal(true, '0x41626f6261000000000000000000000000000000000000000000000000000000')
     const temp = await bets.connect(acc4).moveReveal(true, '0x41626f6261000000000000000000000000000000000000000000000000000000')
     await expect(() =>temp).to.changeEtherBalance(acc2, 14)
     await expect(() =>temp).to.changeEtherBalance(acc3, 14)
