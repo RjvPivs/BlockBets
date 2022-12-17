@@ -4,14 +4,6 @@ pragma solidity >=0.7.0 <0.9.0;
 
 contract Bets {
 
-    constructor() {
-        gameOn = false;
-        registered = 0;
-        judgeNumber = 0;
-        decisionsFinal = 0;
-        votes = 0;
-    }
-
     uint public money;
 
     uint public players;
@@ -38,7 +30,6 @@ contract Bets {
     }
 
     uint public moneyFinal;
-
 
     uint public judgeNumber;
 
@@ -117,6 +108,14 @@ contract Bets {
     modifier notAJudge(){
         require(judges[msg.sender] == false, "A judge cannot bet");
         _;
+    }
+
+    constructor() {
+        gameOn = false;
+        registered = 0;
+        judgeNumber = 0;
+        decisionsFinal = 0;
+        votes = 0;
     }
 
     function setHost(string memory cond, uint plr, uint dur) payable external gameEnded {
